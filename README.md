@@ -41,7 +41,7 @@
     <tr>
       <td>
         <a href="">
-          <img src="https://i.imgur.com/cejiHpU.png" alt="Steamlit App Screenshot">
+          <img src="https://i.imgur.com/VHbFx6C.png" alt="Steamlit App Screenshot">
         </a>
       </td>
     </tr>
