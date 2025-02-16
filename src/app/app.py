@@ -13,7 +13,9 @@ import sys
 from click import UsageError
 
 # Add project root directory to Python path
-sys.path.append(os.path.abspath(path=os.path.join(os.path.dirname(p=__file__), "../../")))
+sys.path.append(
+    os.path.abspath(path=os.path.join(os.path.dirname(p=__file__), "../../"))
+)
 import warnings
 from typing import Dict
 
@@ -32,7 +34,9 @@ from utils.st_utils import (
 from configs import cfgs
 
 # Configure logging to ignore specific warnings
-logging.getLogger(name="streamlit.watcher.local_sources_watcher").setLevel(level=logging.ERROR)
+logging.getLogger(name="streamlit.watcher.local_sources_watcher").setLevel(
+    level=logging.ERROR
+)
 warnings.filterwarnings(
     action="ignore",
     category=UserWarning,
@@ -61,7 +65,7 @@ def initialize_session() -> None:
 
 def main() -> None:
     """Main function to run the Streamlit chat application."""
-    st.title(body="📚 Document Q&A")
+    st.subheader(body="📚 A Document Q&A Application with LanceDB")
 
     # Ensure session state is initialized
     initialize_session()
@@ -155,7 +159,9 @@ def display_search_results(context: str) -> None:
         parts: list[str] = chunk.split(sep="\n")
         text: str = parts[0]
         metadata: Dict[str, str] = {
-            line.split(sep=": ")[0]: line.split(sep=": ")[1] for line in parts[1:] if ": " in line
+            line.split(sep=": ")[0]: line.split(sep=": ")[1]
+            for line in parts[1:]
+            if ": " in line
         }
 
         source: str = metadata.get("Source", "Unknown source")

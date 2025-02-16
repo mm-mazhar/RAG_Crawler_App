@@ -10,7 +10,9 @@ import os
 import sys
 
 # Add the project root directory to Python path
-sys.path.append(os.path.abspath(path=os.path.join(os.path.dirname(p=__file__), "../..")))
+sys.path.append(
+    os.path.abspath(path=os.path.join(os.path.dirname(p=__file__), "../.."))
+)
 
 from typing import Any, Dict, Iterator, List
 
@@ -68,8 +70,12 @@ def extract_from_sitemap(
         List[DoclingDocument]: List of extracted documents
     """
     converter = DocumentConverter()
-    sitemap_urls: List[str] = get_sitemap_urls(base_url=base_url, sitemap_filename=sitemap_filename)
-    conv_results_iter: Iterator[ConversionResult] = converter.convert_all(source=sitemap_urls)
+    sitemap_urls: List[str] = get_sitemap_urls(
+        base_url=base_url, sitemap_filename=sitemap_filename
+    )
+    conv_results_iter: Iterator[ConversionResult] = converter.convert_all(
+        source=sitemap_urls
+    )
 
     docs: List[DoclingDocument] = []
     for result in conv_results_iter:
